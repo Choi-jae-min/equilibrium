@@ -5,6 +5,15 @@
   --foreground: #171717;
 }
 
+@theme {
+  /* Font sizes */
+  --text-100: 100px;
+  --text-200: 200px;
+
+  /* Spacing (커스텀 필요 시) */
+  --spacing-72: 18rem;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
