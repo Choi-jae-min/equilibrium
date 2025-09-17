@@ -1,10 +1,73 @@
+'use client'
 import Image from "next/image";
+import ImageBtn from "@/app/components/btn/imageBtn";
+import {useEffect, useState} from "react";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-          <p className={'text-100'}>tailwind theme test</p>
+
+    const [time, setTime] = useState("");
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const now = new Date().toLocaleTimeString("en-US", { hour12: false, timeZone: "Asia/Seoul" });
+            setTime(now);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+
+    return (
+    <div className="font-sans grid grid-rows-[20px_1fr_20px] min-h-screen p-8 pb-20 gap-16 sm:p-20">
+      <main>
+          <h1 className={'text-24 font-semibold sm:text-36'}>The Equilibrium Coffee</h1>
+          <div className={'w-full h-[1px] bg-black my-4'}></div>
+
+          <p className={`italic`}>Redefining Balance in Coffee Culture</p>
+          <p className={`italic`}>From EQBM .</p>
+
+
+          <div className={'text-sm pt-10 flex justify-between'}>
+              <span>
+                  <p className="">3F, 7 Achasan-ro 30-gil, Gwangjin-gu, Seoul, Korea</p>
+                  <p className="font-mono">{time}</p>
+                  <p className="">+0507 1332 6073</p>
+              </span>
+              <p className={'font-mono flex items-end'}>from 2020.</p>
+          </div>
+
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 pt-5">
+              <div className="relative w-full h-96 overflow-hidden group rounded-lg ">
+                  <Image
+                      src="/images/main.jpg"
+                      alt="Coffee image 1"
+                      fill
+                      className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                  />
+                  <ImageBtn
+                      title={'The Equilibrium Way'}
+                      onClick={() => {}}
+                      className="text-12 lg:text-16 bg-white absolute top-5 right-5 px-4 py-2 shadow rounded-2xl hover:cursor-pointer"
+                  />
+              </div>
+
+              <div className="relative w-full h-[700px] overflow-hidden group rounded-lg ">
+                  <Image
+                      src="/images/ankue.jpg"
+                      alt="Coffee image 1"
+                      fill
+                      className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                  />
+                  <ImageBtn
+                      title={'Respect the Beans feat.커향존중'}
+                      onClick={() => {}}
+                      className="text-12 lg:text-16 bg-white absolute top-5 right-5 px-4 py-2 shadow rounded-2xl hover:cursor-pointer"
+                  />
+              </div>
+          </div>
+
+
       </main>
     </div>
   );
