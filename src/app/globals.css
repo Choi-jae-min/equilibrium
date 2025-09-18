@@ -12,6 +12,7 @@
   --text-16: 16px;
   --text-24: 24px;
   --text-36: 36px;
+  --text-120: clamp(42px, 5vw, 120px);
 
   /* Spacing (커스텀 필요 시) */
   --spacing-72: 18rem;

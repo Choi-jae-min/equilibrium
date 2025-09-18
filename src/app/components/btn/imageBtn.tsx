@@ -16,7 +16,7 @@ const ImageBtn :FC<Props> = ({title, onClick, className ,disabled = false}) => {
                 className={`flex items-center space-x-1 group ${className}`}
                 onClick={() => onClick()}
             >
-                <p>{title}</p>
+                <p className={'text-12 lg:text-14'}>{title}</p>
                 <MdOutlineArrowOutward className="transition-transform duration-300 ease-in-out group-hover:rotate-45" />
             </button>
         </div>

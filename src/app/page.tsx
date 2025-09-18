@@ -3,6 +3,7 @@ import Image from "next/image";
 import ImageBtn from "@/app/components/btn/imageBtn";
 import {useEffect, useState} from "react";
 import Header from "@/app/components/header";
+import Section2 from "@/app/components/main/section2";
 
 export default function Home() {
 
@@ -26,7 +27,6 @@ export default function Home() {
           <p className={`italic`}>Redefining Balance in Coffee Culture</p>
           <p className={`italic`}>From EQBM .</p>
 
-
           <div className={'text-12 pt-10 flex justify-between items-end lg:hidden'}>
               <span>
                   <p className="">3F, 7 Achasan-ro 30-gil, Gwangjin-gu, Seoul, Korea</p>
@@ -37,7 +37,7 @@ export default function Home() {
           </div>
 
 
-          <div className="lg:pt-10 grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 gap-2 lg:gap-4 pt-5">
+          <div className="lg:pt-10 grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-1 gap-2 lg:gap-4 pt-5">
               <div>
                   <div className="hidden lg:flex relative w-full h-[300px] lg:row-span-1">
                       <h2 className={'font-mono absolute left-[50%] font-semibold pt-5'}>Awaken Your Senses,<br/> One Sip at a Time</h2>
@@ -61,7 +61,7 @@ export default function Home() {
                       <ImageBtn
                           title={'The Equilibrium Way'}
                           onClick={() => {}}
-                          className="text-12 lg:text-14 bg-white absolute top-5 right-5 px-4 py-2 shadow rounded-2xl hover:cursor-pointer"
+                          className="bg-white absolute top-5 right-5 px-4 py-2 shadow rounded-2xl hover:cursor-pointer"
                       />
                   </div>
               </div>
@@ -76,10 +76,11 @@ export default function Home() {
                   <ImageBtn
                       title={'Respect the Beans feat.커향존중'}
                       onClick={() => {}}
-                      className="text-12 lg:text-14 bg-white absolute top-5 right-5 px-4 py-2 shadow rounded-2xl hover:cursor-pointer"
+                      className="bg-white absolute top-5 right-5 px-4 py-2 shadow rounded-2xl hover:cursor-pointer"
                   />
               </div>
           </div>
+            <Section2/>
       </main>
     </div>
   );
