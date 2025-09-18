@@ -2,6 +2,7 @@
 import Image from "next/image";
 import ImageBtn from "@/app/components/btn/imageBtn";
 import {useEffect, useState} from "react";
+import Header from "@/app/components/header";
 
 export default function Home() {
 
@@ -18,10 +19,9 @@ export default function Home() {
 
 
     return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main>
-          <h1 className={'text-24 font-semibold sm:text-36'}>The Equilibrium Coffee</h1>
-          <div className={'w-full h-[1px] bg-black my-4'}></div>
+    <div className="font-sans p-8 pt-4 pb-20 gap-16 sm:p-20 sm:pt-5">
+        <Header/>
+        <main>
 
           <p className={`italic`}>Redefining Balance in Coffee Culture</p>
           <p className={`italic`}>From EQBM .</p>
@@ -80,8 +80,6 @@ export default function Home() {
                   />
               </div>
           </div>
-
-
       </main>
     </div>
   );
