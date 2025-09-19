@@ -25,13 +25,12 @@ export default function Home() {
         <Header/>
         <main>
 
-          <p className={`italic`}>어쩌구 저쩌구 주짓수 가야지</p>
+          <p className={`italic`}>Redefining Balance in Coffee Culture</p>
           <p className={`italic`}>From EQBM .</p>
 
           <div className={'text-12 pt-10 flex justify-between items-end lg:hidden'}>
               <span>
-                  <p className="">서울 대한민국 아차산로 30길-7 3층</p>
-                  {/*<p className="">3F, 7 Achasan-ro 30-gil, Gwangjin-gu, Seoul, Korea</p>*/}
+                  <p className="">3F, 7 Achasan-ro 30-gil, Gwangjin-gu, Seoul, Korea</p>
                   <p className="font-mono">{time}</p>
                   <p className="">+0507 1332 6073</p>
               </span>
@@ -61,7 +60,7 @@ export default function Home() {
                           className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                       />
                       <ImageBtn
-                          title={'이퀼리 방향성'}
+                          title={'The Equilibrium Way'}
                           onClick={() => {}}
                           className="bg-white absolute top-5 right-5 px-4 py-2 shadow rounded-2xl hover:cursor-pointer"
                       />
