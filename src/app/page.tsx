@@ -4,6 +4,7 @@ import ImageBtn from "@/app/components/btn/imageBtn";
 import {useEffect, useState} from "react";
 import Header from "@/app/components/header";
 import Section2 from "@/app/components/main/section2";
+import Section3 from "@/app/components/main/section3";
 
 export default function Home() {
 
@@ -20,7 +21,7 @@ export default function Home() {
 
 
     return (
-    <div className="font-sans p-8 pt-4 pb-20 gap-16 sm:p-20 sm:pt-5">
+    <div className="font-sans p-8 pt-4 pb-20 gap-16 sm:p-20 sm:px-10 sm:pt-5">
         <Header/>
         <main>
 
@@ -81,6 +82,7 @@ export default function Home() {
               </div>
           </div>
             <Section2/>
+            <Section3/>
       </main>
     </div>
   );
