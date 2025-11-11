@@ -12,7 +12,7 @@ const Section3 = () => {
 
             <article className={'grid grid-cols-2 lg:grid-cols-4 gap-4 pt-4'}>
                 <ProductCard title={'라떼 싱글 오리진 Latte Single Origin'} type={'COFFEE'} img_src={'/images/latteSingle.jpeg'}/>
-                <ProductCard title={'뮤제 바닐라Muze Vanilla'} type={'DESSERT'} img_src={'/images/muze.jpg'}/>
+                <ProductCard title={'뮤제 바닐라 Muze Vanilla'} type={'DESSERT'} img_src={'/images/muze.jpg'}/>
                 <ProductCard title={'레드팝 Red Pop'} type={'BEVERAGE'} img_src={'/images/red pop.jpg'}/>
                 <ProductCard title={'Wedding Imperial'} type={'TEA'} img_src={'/images/wedding.jpg'}/>
                 <ProductCard title={'Twilight 트와일라잇'} type={'COFFEE'} img_src={'/images/twilight.jpg'}/>
