@@ -1,5 +1,5 @@
 export type Product = {
-    id: string;
+    id: string;//uuid
     koreaName: string;
     englishName : string;
     price: number;
