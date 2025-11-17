@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductList from "@/app/admin/products/productList";
 import {Product} from "@/types/product";
+import {products} from "@/db/schema";
 
 export const dynamic = "force-dynamic";
 

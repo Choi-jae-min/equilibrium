@@ -1,15 +1,4 @@
-export type Product = {
-    id: string;//uuid
-    koreaName: string;
-    englishName : string;
-    price: number;
-    imgSrc: string;
-    productType: ProductType;
-};
+import {products} from "@/db/schema";
 
-export type ProductType =
-    | "COFFEE"
-    | "DESSERT"
-    | "BEVERAGE"
-    | "TEA"
-    | "FILTER_COFFEE";
+export type Product = typeof products.$inferSelect;
+export type ProductInsert = typeof products.$inferInsert;

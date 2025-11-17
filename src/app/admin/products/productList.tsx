@@ -14,16 +14,16 @@ export default function ProductList({ productList }: Props) {
                     key={product.id}
                     className="bg-white border rounded-lg shadow-sm p-4 flex flex-col gap-3 hover:shadow-md transition-shadow cursor-pointer"
                 >
-                    {product.imgSrc && (
-                        <div className="relative w-full h-40 rounded-md overflow-hidden bg-gray-100">
-                            <Image
-                                src={product.imgSrc}
-                                alt={product.koreaName}
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                    )}
+                    {/*{product. && (*/}
+                    {/*    <div className="relative w-full h-40 rounded-md overflow-hidden bg-gray-100">*/}
+                    {/*        <Image*/}
+                    {/*            src={product.imgSrc}*/}
+                    {/*            alt={product.koreaName}*/}
+                    {/*            fill*/}
+                    {/*            className="object-cover"*/}
+                    {/*        />*/}
+                    {/*    </div>*/}
+                    {/*)}*/}
 
                     <div className="flex flex-col gap-1">
                         <div className="text-lg font-semibold">{product.koreaName}</div>

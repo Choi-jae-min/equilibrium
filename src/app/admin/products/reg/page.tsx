@@ -6,16 +6,15 @@ import toast from "react-hot-toast";
 import Image from "next/image";
 
 export default function ProductCreatePage() {
-    const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [preview, setPreview] = useState<string | null>(null);
     const [file, setFile] = useState<File | null>(null);
 
     const [form, setForm] = useState({
-        name: "",
         koreaName: "",
+        englishName: "",
+        description: "ㄴㅁㅇ",
         price: "",
-        imgSrc: "",
         productType: "COFFEE",
     });
 
@@ -51,13 +50,14 @@ export default function ProductCreatePage() {
             formData.append("file", file);
 
             const s3res = await fetch(url, { method: "POST", body: formData });
-            if (s3res.ok) { // 이미지 업로드 시 DB제품 등록
+            if (s3res.ok) {
                 const res = await fetch("/api/products", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         ...form,
                         price: Number(form.price),
+                        imageKey : key
                     }),
                 });
 
@@ -94,8 +94,8 @@ export default function ProductCreatePage() {
                 <div>
                     <label className="block text-sm font-medium mb-1">상품 이름(영문)</label>
                     <input
-                        name="name"
-                        value={form.name}
+                        name="englishName"
+                        value={form.englishName}
                         onChange={handleChange}
                         placeholder="Americano"
                         className="w-full border rounded-md px-3 py-2"
