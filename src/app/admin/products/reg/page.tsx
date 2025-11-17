@@ -9,6 +9,7 @@ export default function ProductCreatePage() {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [preview, setPreview] = useState<string | null>(null);
+    const [file, setFile] = useState<File | null>(null);
 
     const [form, setForm] = useState({
         name: "",
@@ -32,20 +33,39 @@ export default function ProductCreatePage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-
+        if(!file) {
+            return alert('선택된 사진이 없습니다.')
+        }
         try {
-            const res = await fetch("/api/products", {
+
+            const get_preUrl = await fetch("/api/s3/upload", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    ...form,
-                    price: Number(form.price),
-                }),
+                body: JSON.stringify({ filename: file.name, contentType: file.type }),
             });
+            const { url, fields, key, error } = await get_preUrl.json();
+            if (error) return alert(error);
 
-            if (!res.ok) throw new Error("등록 실패");
-            toast.success("상품이 성공적으로 등록되었습니다!");
-            router.push("/admin/products");
+            const formData = new FormData();
+            Object.entries(fields).forEach(([k, v]) => formData.append(k, v as string));
+            formData.append("file", file);
+
+            const s3res = await fetch(url, { method: "POST", body: formData });
+            if (s3res.ok) { // 이미지 업로드 시 DB제품 등록
+                const res = await fetch("/api/products", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        ...form,
+                        price: Number(form.price),
+                    }),
+                });
+
+                if (!res.ok) throw new Error("등록 실패");
+                toast.success("상품이 성공적으로 등록되었습니다!");
+            } else {
+                toast.error("상품 등록 중 오류가 발생했습니다.");
+            }
         } catch (err) {
             console.error(err);
             toast.error("상품 등록 중 오류가 발생했습니다.");
@@ -105,7 +125,7 @@ export default function ProductCreatePage() {
                             onChange={(e) => {
                                 const file = e.target.files?.[0];
                                 if (!file) return;
-
+                                setFile(file)
                                 const imageUrl = URL.createObjectURL(file);
                                 setPreview(imageUrl);
 
