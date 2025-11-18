@@ -21,8 +21,8 @@ export default async function Home() {
 
         <p className={`italic`}>Redefining Balance in Coffee Culture</p>
         <p className={`italic`}>From EQBM .</p>
-        <Section1/>
-        <Section2/>
+        <Section1 imageDomain={process.env.CLOUDFRONT_DOMAIN! || ''} />
+        <Section2 imageDomain={process.env.CLOUDFRONT_DOMAIN! || ''}/>
         <Section3 productList={productList}/>
       </main>
     </div>

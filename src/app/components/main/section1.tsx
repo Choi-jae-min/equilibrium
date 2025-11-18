@@ -3,9 +3,13 @@ import React, {useEffect, useState} from 'react';
 import Image from "next/image";
 import ImageBtn from "@/app/components/btn/imageBtn";
 
-const Section1 = () => {
-    const [time, setTime] = useState("");
+type Section1Props = {
+    imageDomain: string;
+};
 
+const Section1 = ({ imageDomain }: Section1Props) => {
+    const [time, setTime] = useState("");
+    const image_domain =imageDomain;
     useEffect(() => {
         const interval = setInterval(() => {
             const now = new Date().toLocaleTimeString("en-US", { hour12: false, timeZone: "Asia/Seoul" });
@@ -20,7 +24,7 @@ const Section1 = () => {
             <div className={'text-12 pt-10 flex justify-between items-end lg:hidden'}>
                   <span>
                       <p className="">3F, 7 Achasan-ro 30-gil, Gwangjin-gu, Seoul, Korea</p>
-                      {/*<p className="font-mono">{time}</p>*/}
+                      <p className="font-mono">{time}</p>
                       <p className="">+0507 1332 6073</p>
                   </span>
                 <p className={'font-mono flex items-end text-nowrap'}>from 2020.</p>
@@ -42,7 +46,7 @@ const Section1 = () => {
 
                     <div className="relative w-full h-96 lg:h-[500px] overflow-hidden group rounded-lg lg:row-span-1">
                         <Image
-                            src="/images/main.jpg"
+                            src={`${image_domain}/products/main.jpg`}
                             alt="Coffee image 1"
                             fill
                             className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
@@ -57,7 +61,7 @@ const Section1 = () => {
 
                 <div className="relative w-full h-[600px] lg:h-[800px] overflow-hidden group rounded-lg lg:row-span-2">
                     <Image
-                        src="/images/ankue.jpg"
+                        src={`${image_domain}/products/ankue.jpg`}
                         alt="Coffee image 1"
                         fill
                         className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"

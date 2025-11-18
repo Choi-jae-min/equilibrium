@@ -5,32 +5,35 @@ import { motion } from "framer-motion";
 
 const images = [
     {
-        src: "/images/object8.jpg",
+        src: `products/object1.jpg`,
         alt: "Coffee object1",
         w: "w-[55%] sm:w-[30%] md:w-[23%]",
         initial: { x: -100, y: -50, rotate: -15 }
     },
     {
-        src: "/images/object6.jpg",
+        src: `products/object2.jpg`,
         alt: "Coffee object2",
         w: "w-[30%] sm:w-[20%] md:w-[15%]",
         initial: { x: 120, y: -80, rotate: 20 }
     },
     {
-        src: "/images/object5.jpg",
+        src: `products/object3.jpg`,
         alt: "Coffee object3",
         w: "w-[43%] sm:w-[30%] md:w-[27%]",
         initial: { x: -60, y: 90, rotate: -10 }
     },
     {
-        src: "/images/object7.jpg",
+        src: `products/object4.jpg`,
         alt: "Coffee object4",
         w: "w-[35%] sm:w-[25%] md:w-[18%] hidden sm:block",
         initial: { x: 100, y: 60, rotate: 12 }
     },
 ];
+type Section1Props = {
+    imageDomain: string;
+};
 
-const Section2 = () => {
+const Section2 = ({ imageDomain }: Section1Props) => {
     return (
         <section className={'border-t-1 border-gray-300 mt-15 pt-10'}>
             <h2 className={'font-semibold pb-10 flex items-center'}>
@@ -59,7 +62,7 @@ const Section2 = () => {
                         viewport={{ once: true, amount: 0.4 }}
                     >
                         <Image
-                            src={img.src}
+                            src={`${imageDomain}/${img.src}`}
                             alt={img.alt}
                             fill
                             className="object-cover rounded-lg shadow-lg"
