@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import Image from "next/image";
 
 export default function ProductCreatePage() {
+    const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [preview, setPreview] = useState<string | null>(null);
     const [file, setFile] = useState<File | null>(null);
@@ -63,6 +64,7 @@ export default function ProductCreatePage() {
 
                 if (!res.ok) throw new Error("등록 실패");
                 toast.success("상품이 성공적으로 등록되었습니다!");
+                return router.push('/admin/products')
             } else {
                 toast.error("상품 등록 중 오류가 발생했습니다.");
             }

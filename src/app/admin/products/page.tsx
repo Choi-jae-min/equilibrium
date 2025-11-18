@@ -1,8 +1,7 @@
 import React from 'react';
 import ProductList from "@/app/admin/products/productList";
 import {Product} from "@/types/product";
-import {products} from "@/db/schema";
-
+import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 const Page = async () => {
@@ -15,7 +14,7 @@ const Page = async () => {
             <h2>
                 상품리스트 관리
             </h2>
-
+            <Link href={'products/reg'}> 상품 등록하기</Link>
             <ProductList productList={productList}></ProductList>
         </div>
     );
