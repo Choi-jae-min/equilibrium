@@ -56,7 +56,6 @@ export default function ProductCreatePage() {
                         imageKey : key
                     }),
                 });
-                console.log(await s3res.json())
                 if (!res.ok) throw new Error("등록 실패");
                 toast.success("상품이 성공적으로 등록되었습니다!");
                 return router.push('/admin/products')
