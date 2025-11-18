@@ -1,8 +1,12 @@
 import React from 'react';
 import ProductCard from "@/app/components/cards/productCard";
 import LinkCard from "@/app/components/cards/LinkCard";
+import {Product} from "@/types/product";
 
-const Section3 = () => {
+type Props = { productList: Array<Product> };
+
+const Section3 = ({ productList }: Props) => {
+
     return (
         <section className={'pt-10 border-t border-gray-300'}>
             <h2 className={'font-semibold pb-4s flex items-center'}>
@@ -11,13 +15,9 @@ const Section3 = () => {
             <p className={'font-medium text-right'}>discover our coffee and desserts.</p>
 
             <article className={'grid grid-cols-2 lg:grid-cols-4 gap-4 pt-4'}>
-                <ProductCard title={'라떼 싱글 오리진 Latte Single Origin'} type={'COFFEE'} img_src={'/images/latteSingle.jpeg'}/>
-                <ProductCard title={'뮤제 바닐라 Muze Vanilla'} type={'DESSERT'} img_src={'/images/muze.jpg'}/>
-                <ProductCard title={'레드팝 Red Pop'} type={'BEVERAGE'} img_src={'/images/red pop.jpg'}/>
-                <ProductCard title={'Wedding Imperial'} type={'TEA'} img_src={'/images/wedding.jpg'}/>
-                <ProductCard title={'Twilight 트와일라잇'} type={'COFFEE'} img_src={'/images/twilight.jpg'}/>
-                <ProductCard title={'Red 레드'} type={'FILTER_COFFEE'} img_src={'/images/redFilter.jpeg'}/>
-                <ProductCard title={'House Blend'} type={'COFFEE'} img_src={'/images/houseBlend.jpg'}/>
+                {productList.map((product) => (
+                    <ProductCard key={product.id} title={product.koreaName} type={product.productType} img_src={`${process.env.CLOUDFRONT_DOMAIN}/${product.image?.imageKey || "default"}`}/>
+                ))}
                 <LinkCard/>
             </article>
         </section>
