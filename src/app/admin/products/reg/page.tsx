@@ -24,10 +24,6 @@ export default function ProductCreatePage() {
     ) => {
         const { name, value } = e.target;
         setForm((prev) => ({ ...prev, [name]: value }));
-
-        if (name === "imgSrc") {
-            setPreview(value || null);
-        }
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -37,7 +33,6 @@ export default function ProductCreatePage() {
             return alert('선택된 사진이 없습니다.')
         }
         try {
-
             const get_preUrl = await fetch("/api/s3/upload", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -61,7 +56,7 @@ export default function ProductCreatePage() {
                         imageKey : key
                     }),
                 });
-
+                console.log(await s3res.json())
                 if (!res.ok) throw new Error("등록 실패");
                 toast.success("상품이 성공적으로 등록되었습니다!");
                 return router.push('/admin/products')
